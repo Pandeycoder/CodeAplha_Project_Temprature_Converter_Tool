@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Converter</title>
+    <style>
+        body{
+            padding: 50px 100px;
+        }
+        h1{
+            text-align: center;
+            font-size: 45px;
+            color: rgb(105, 100, 100);
+        }
+        #container{
+            text-align: center;
+            background-color: #2e4e7d;
+            border-radius: 10px;
+            box-shadow: 4px 4px 4px 4px rgb(87, 158, 181);
+            padding: 50px;
+            width: 900px;
+        }
+        .input-div{
+            display:inline-block;
+        }
+        .inp{
+            padding:5px 5px;
+            margin:5px;
+            font-size: 30px;
+            font-weight: bold;
+            color: rgb(141, 131, 131);
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 2px 2px 2px 2px blue;
+
+        }
+        label{
+            font-size: 22px;
+            color: antiquewhite;
+        }
+        .number
+        {
+            border-radius: 10px;
+            box-shadow: 2px 2px 2px 2px blue;
+        }
+    </style>
+</head>
+<body>
+    <h1>Temperature Convertor</h1>
+    <div id="container">
+        <div class="input-div">
+            <label>Degree Celsius</label><br>
+            <input type="number" value="0" id="cel" class="inp">
+        </div>
+        <div class="input-div">
+            <label>Fahrenheit</label><br>
+            <input type="number" value="32" id="fah" class="inp">
+        </div>
+        <div class="input-div">
+            <label>Kelvin</label><br>
+            <input type="number" value="273.15" id="kelvin" class="inp">
+        </div>
+    </div>
+
+    <script>
+        var cel=document.getElementById("cel");
+        var fah=document.getElementById("fah");
+        var kelvin=document.getElementById("kelvin");
+        cel.addEventListener('input',function(){
+            let c=this.value;
+            let f=(c * 9/5) + 32;
+            if(!Number.isInteger(f)){
+               f=f.toFixed(4);
+            } 
+            fah.value=f;
+            let k=(k1 + 273.15);
+            if(!Number.isInteger(k)){
+               k=k.toFixed(4);
+            }
+            kelvin.value=k;
+        });
+        fah.addEventListener('input',function(){
+            let f=this.value;
+            let c=(f - 32) * 5/9;
+            if(!Number.isInteger(c)){
+                c=c.toFixed(4);
+            }
+            cel.value=c;
+            let k=(f - 32) * 5/9 + 273.15;
+            if(!Number.isInteger(k)){
+                k=k.toFixed(4);
+            }
+            kelvin.value=k;
+        })
+        kelvin.addEventListener('input',function(){
+            let k=this.value;
+            let c=(k - 273.15);
+            if(!Number.isInteger(c)){
+                c=c.toFixed(4);
+            }
+            cel.value=c; 
+        })
+        kelvin.addEventListener('input',function(){
+            let f=(k-273.15) * 9/5 + 32;
+            if(!Number.isInteger(f)){
+               f=f.toFixed(4);
+            } 
+            kelvin.value=k;
+        })
+
+    </script>
+</body>
+</html>
